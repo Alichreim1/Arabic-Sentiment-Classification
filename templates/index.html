@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sentiment Analysis</title>
+</head>
+<body>
+    <h1>Sentiment Analysis</h1>
+    
+    <form method="POST">
+        <label for="sentence">Enter a sentence:</label>
+        <input type="text" id="sentence" name="sentence" required>
+        <button type="submit">Submit</button>
+    </form>
+
+    {% if sentence %}
+        <p>Input Sentence: {{ sentence }}</p>
+    {% endif %}
+
+    {% if result %}
+        <p>Sentiment: {{ result[0]['label'] }} (Confidence: {{ result[0]['score'] }})</p>
+    {% endif %}
+
+    {% if error %}
+        <p style="color: red;">{{ error }}</p>
+    {% endif %}
+</body>
+</html>
